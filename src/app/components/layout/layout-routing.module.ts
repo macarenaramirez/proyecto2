@@ -5,6 +5,7 @@ import {AuthorizationGuard} from '../../authorization/authorization.guard';
 
 const dirDependencias = './menu-inventario-infor/mantenimientos/dependencias/';
 const dirMenuLateral = './menu-sima/panel-de-control/';
+const dirMenu = './menu-sima/menu-dashboard/dashboard/';
 
 const routes: Routes = [
   {
@@ -23,9 +24,22 @@ const routes: Routes = [
 
       {
         path: '',
+        loadChildren: dirMenuLateral + 'usuarios.1/usuarioss.module#UsuarioModule',
+        canActivate: [AuthorizationGuard]
+      },
+
+      {
+        path: '',
         loadChildren: dirMenuLateral + 'usuarios/usuario.module#UsuarioModule',
         canActivate: [AuthorizationGuard]
       },
+
+      {
+        path: '',
+        loadChildren: dirMenuLateral + 'lugar-operativo/lugar-operativo.module#LugarOperativoModule',
+        canActivate: [AuthorizationGuard]
+      },
+
 
       // {
       //   path: 'menu-sima/panel-de-control/menu-lateral/form-new',

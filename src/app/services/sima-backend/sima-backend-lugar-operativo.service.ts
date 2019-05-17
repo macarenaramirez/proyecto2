@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Respuesta} from '../../models/new/respuesta.model';
 import {UserNameModel} from '../../models/new/userName.model';
-import {UsuarioModel} from '../../models/new/usuario.model';
-import {BodyUserNameModelUsuarioModel} from '../../models/new/bodyUserNameModelUsuarioModel.model';
+import {LugarOperativoModel} from '../../models/new/lugarOperativo.model';
+import {BodyUserNameModelLugarOperativoModel} from '../../models/new/bodyUserNameModelLugarOperativoModel.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +14,9 @@ export class SimaBackendLugarOperativoServiceService {
 
   private headers: HttpHeaders;
 
-  bodyUserNameModelUsuarioModel = new class implements BodyUserNameModelUsuarioModel {
+  bodyUserNameModelLugarOperativoModel = new class implements BodyUserNameModelLugarOperativoModel {
     userNameModel: UserNameModel;
-    usuarioModel: UsuarioModel;
+    lugarOperativoModel: LugarOperativoModel;
   };
 
   constructor(private http: HttpClient) {
@@ -29,13 +29,28 @@ export class SimaBackendLugarOperativoServiceService {
       userNameModel, {headers: this.headers});
   }
 
-  save(usuarioModel: UsuarioModel, userNameModel: UserNameModel) {
-    this.bodyUserNameModelUsuarioModel.userNameModel = userNameModel;
-    this.bodyUserNameModelUsuarioModel.usuarioModel = usuarioModel;
-    this.headers.append('accept', '*/*');
+  findAll(page: number, size: number, campo: string, orden: string, userNameModel: UserNameModel) {
     this.headers.append('Content-Type', 'application/json');
-    return this.http.post<Respuesta>(this.rootUrl + `save`, this.bodyUserNameModelUsuarioModel,
-      {headers: this.headers});
+    return this.http.post<Respuesta>(this.rootUrl + `findAll?page=${page}&size=${size}&sort=${campo},${orden}`,
+      userNameModel, {headers: this.headers});
   }
 
+
+  create(lugarOperativoModel: LugarOperativoModel, userNameModel: UserNameModel) {
+    console.log(JSON.stringify(lugarOperativoModel));
+    this.bodyUserNameModelLugarOperativoModel.userNameModel = userNameModel;
+    this.bodyUserNameModelLugarOperativoModel.lugarOperativoModel = lugarOperativoModel;
+    this.headers.append('accept', '*/*');
+    this.headers.append('Content-Type', 'application/json');
+    return this.http.post<Respuesta>(this.rootUrl + `create`, this.bodyUserNameModelLugarOperativoModel,
+      {headers: this.headers});
+  }
+  edit(lugarOperativoModel: LugarOperativoModel, userNameModel: UserNameModel) {
+    this.bodyUserNameModelLugarOperativoModel.userNameModel = userNameModel;
+    this.bodyUserNameModelLugarOperativoModel.lugarOperativoModel = lugarOperativoModel;
+    this.headers.append('accept', '*/*');
+    this.headers.append('Content-Type', 'application/json');
+    return this.http.post<Respuesta>(this.rootUrl + `edit`, this.bodyUserNameModelLugarOperativoModel,
+      {headers: this.headers});
+}
 }

@@ -3,41 +3,38 @@
   [lista]="lista">
 </app-content-header>
 
+
 <section class="content">
   <div class="box box-primary">
     <div class="box-header with-border">
-      <h3 class="box-title">Ingrese los datos para el Usuario</h3>
+      <h3 class="box-title">Editar Lugar Operativo</h3>
     </div>
     <!-- /.box-header -->
     <!-- form start -->
     <form role="form" [formGroup]="rForm" (ngSubmit)="save(rForm.value)">
       <div class="box-body">
 
-        <div class="form-group">
-          <label for="userName">UserName</label>
-          <input class="form-control" id="userName" placeholder="UserName" type="text" formControlName="userName">
+      <!--  <div class="form-group">
+          <label for="id">Id</label>
+          <input class="form-control" id="id" placeholder="id" type="text" formControlName="userName">
         </div>
         <div class="alert alert-warning" role="alert"
-             *ngIf="!rForm.controls['userName'].valid  && rForm.controls['userName'].touched">
+             *ngIf="!rForm.controls['id'].valid  && rForm.controls['id'].touched">
           El campo es requerido y debe tener un minimo de 5 caracteres.
-        </div>
+        </div>-->
 
         <div class="form-group">
-          <label for="sessionTime">sessionTime</label>
-          <input class="form-control" id="sessionTime" placeholder="SessionTime" type="text"
-                 formControlName="sessionTime">
+          <label for="nombre">Nombre</label>
+          <input class="form-control" id="nombre" placeholder="nombre" type="text"
+                 formControlName="nombre">
         </div>
-        <div class="alert alert-warning" role="alert"
+       <!--  <div class="alert alert-warning" role="alert"
              *ngIf="!rForm.controls['sessionTime'].valid  && rForm.controls['sessionTime'].touched">
           Debe ser mayor a 0.
-        </div>
+        </div>-->
         <div class="form-group">
-          <label for="lugarOperativo">Lugar Operativo</label>
-          <select class="form-control" id="lugarOperativo" formControlName="lugarOperativo">
-            <option *ngFor="let lugarOperativo of lugaresOperativos" [value]="lugarOperativo.nombre">
-              {{lugarOperativo.nombre}}
-            </option>
-          </select>
+          <label for="codLugar">Codigo del Lugar</label>
+          <input class="form-control" id="codLugar" placeholder="codLugar" type="text" formControlName="codLugar">
         </div>
 
         <!--<div class="form-group">-->

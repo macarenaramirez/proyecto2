@@ -34,7 +34,7 @@
         <div class="form-group">
           <label for="lugarOperativo">Lugar Operativo</label>
           <select class="form-control" id="lugarOperativo" formControlName="lugarOperativo">
-            <option *ngFor="let lugarOperativo of lugaresOperativos" [value]="lugarOperativo.nombre">
+            <option *ngFor="let lugarOperativo of lugaresOperativos" [value]="lugarOperativo.id">
               {{lugarOperativo.nombre}}
             </option>
           </select>
