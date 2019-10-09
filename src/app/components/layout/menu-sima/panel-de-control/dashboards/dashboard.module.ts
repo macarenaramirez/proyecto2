@@ -5,27 +5,28 @@ import {ContentHeaderModule} from '../../../widgets/content-header/content-heade
 import {PaginationModule} from '../../../widgets/pagination/pagination.module';
 import {SimaBackendSessionService} from '../../../../../services/sima-backend/sima-backend-session.service';
 import {SimaBackendMenuServiceService} from '../../../../../services/sima-backend/sima-backend-menu.service';
-import {Usuario1RoutingModule} from './usuarioss-routing.module';
-import {Usuario1ListComponent} from './usuario1-list/usuario1-list.component';
-//import {Usuario1FormNewComponent} from './usuario1-form-new/usuario1-form-new.component';
+import {DashboardRoutingModule} from './dashboard-routing.module';
+import {UsuarioListComponent} from './dashboard-list/dashboard-list.component';
+import {UsuarioComponent} from './dashboard.component';
+import {UsuarioFormNewComponent} from './dashboard-form-new/dashboard-form-new.component';
 import {SimaBackendLugarOperativoServiceService} from '../../../../../services/sima-backend/sima-backend-lugar-operativo.service';
 import {SimaBackendUsuarioServiceService} from '../../../../../services/sima-backend/sima-backend-usuario.service';
-import {UsuarioFormEditComponent} from './usuario1-form-edit/usuario1-form-edit.component';
-import {Usuario1Component} from './usuarioss.component';
+import {UsuarioFormEditComponent} from './dashboard-form-edit/dashboard-form-edit.component';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    Usuario1RoutingModule,
+    DashboardRoutingModule,
     ContentHeaderModule,
     PaginationModule
   ],
   declarations: [
-    Usuario1ListComponent,
-    //Usuario1FormNewComponent,
-    //Usuario1FormEditComponent,
-    Usuario1Component
+    UsuarioListComponent,
+    UsuarioFormNewComponent,
+    UsuarioFormEditComponent,
+    UsuarioComponent
   ],
   providers: [
     SimaBackendSessionService,
@@ -34,5 +35,5 @@ import {Usuario1Component} from './usuarioss.component';
   ]
 })
 
-export class UsuarioModule {
+export class DashboardModule {
 }

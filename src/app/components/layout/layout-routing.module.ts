@@ -5,7 +5,7 @@ import {AuthorizationGuard} from '../../authorization/authorization.guard';
 
 const dirDependencias = './menu-inventario-infor/mantenimientos/dependencias/';
 const dirMenuLateral = './menu-sima/panel-de-control/';
-const dirMenu = './menu-sima/menu-dashboard/dashboard/';
+
 
 const routes: Routes = [
   {
@@ -16,15 +16,10 @@ const routes: Routes = [
       // {path: '', redirectTo: 'inicio'},
       // Rutas para Sima
       // path: 'menu-sima/panel-de-control/menu-lateral/form-new/:id_padre/:nivel_actual',
+            
       {
         path: '',
         loadChildren: dirMenuLateral + 'menu-lateral/menu-lateral.module#MenuLateralModule',
-        canActivate: [AuthorizationGuard]
-      },
-
-      {
-        path: '',
-        loadChildren: dirMenuLateral + 'usuarios.1/usuarioss.module#UsuarioModule',
         canActivate: [AuthorizationGuard]
       },
 
@@ -41,14 +36,15 @@ const routes: Routes = [
       },
 
 
-      // {
+      /* {
       //   path: 'menu-sima/panel-de-control/menu-lateral/form-new',
       //   loadChildren: dirMenuLateral + 'menu-form-new/menu-form-new.module#MenuFormNewModule',
       //   // component: MenuFormNewComponent,
       //   outlet: 'bottom',
       //   canActivate: [AuthorizationGuard]
       // },
-      // Rutas para Inventario Informatica
+      // Rutas para Inventario Informatica*/
+
       {
         path: '',
         loadChildren: dirDependencias + 'dependencia-list/dependencia-list.module#DependenciaListModule',
@@ -60,7 +56,6 @@ const routes: Routes = [
         canActivate: [AuthorizationGuard]
       }
     ]
-
   }
 ];
 

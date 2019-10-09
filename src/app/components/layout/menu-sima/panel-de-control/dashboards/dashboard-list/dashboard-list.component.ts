@@ -10,11 +10,11 @@ import {UsuarioModel} from '../../../../../../models/new/usuario.model';
 import {LugarOperativoModel} from '../../../../../../models/new/lugarOperativo.model';
 
 @Component({
-  selector: 'app-usuario1-list',
-  templateUrl: './usuario1-list.component.html',
-  styleUrls: ['./usuario1-list.component.css']
+  selector: 'app-usuarios-list',
+  templateUrl: './usuario-list.component.html',
+  styleUrls: ['./usuario-list.component.css']
 })
-export class Usuario1ListComponent implements OnInit {
+export class UsuarioListComponent implements OnInit {
 
   titulo: string;
   lista: string[];
